@@ -159,10 +159,7 @@
                                             </p>
                                             <div class="clear"></div>
 
-                                            <p id="billing_company_field" class="form-row form-row-wide">
-                                                <label class="" for="billing_company">Company Name</label>
-                                                <input type="text" value="" placeholder="" id="billing_company" name="billing_company" class="input-text ">
-                                            </p>
+                                            
 
                                             <p id="billing_address_1_field" class="form-row form-row-wide address-field validate-required">
                                                 <label class="" for="billing_address_1">Address <abbr title="required" class="required">*</abbr>
@@ -181,12 +178,6 @@
                                             </p>
 
                                             
-                                            <p id="billing_postcode_field" class="form-row form-row-last address-field validate-required validate-postcode" data-o_class="form-row form-row-last address-field validate-required validate-postcode">
-                                                <label class="" for="billing_postcode">Postcode <abbr title="required" class="required">*</abbr>
-                                                </label>
-                                                <input type="text" value="" placeholder="Postalcode" id="billing_postcode" name="billing_postcode" class="input-text ">
-                                            </p>
-
                                             <div class="clear"></div>
 
                                             <p id="billing_email_field" class="form-row form-row-first validate-required validate-email">
@@ -216,90 +207,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-2">
-                                        <div class="woocommerce-shipping-fields">
-                                            <h3 id="ship-to-different-address">
-                        <label class="checkbox" for="ship-to-different-address-checkbox">Delivery to a different address?</label>
-                        <input type="checkbox" value="1" name="ship_to_different_address" checked="checked" class="input-checkbox" id="ship-to-different-address-checkbox">
-                        </h3>
-                                            <div class="shipping_address" style="display: block;">
-                                                <p id="shipping_country_field" class="form-row form-row-wide address-field update_totals_on_change validate-required woocommerce-validated">
-                                                    <label class="" for="shipping_country">Country <abbr title="required" class="required">*</abbr>
-                                                    </label>
-                                                    <select class="country_to_state country_select" id="shipping_country" name="shipping_country">
-                                                    <option selected="selected" value="">Select your Province</option>
-                                                    <option value="CE">Central</option>
-                                                    <option value="EA">Eastern</option>
-                                                    <option value="NC">North Central</option>
-                                                    <option value="NO">Nothern</option>
-                                                    <option value="NW">North Western</option>
-                                                    <option value="SR">Sabaragamuwa</option>
-                                                    <option value="SO">Southern</option>
-                                                    <option value="UV">UVA</option>
-                                                    <option value="WS">Western</option>
-                                                    </select>
-                                                </p>
-
-                                                <p id="shipping_first_name_field" class="form-row form-row-first validate-required">
-                                                    <label class="" for="shipping_first_name">First Name <abbr title="required" class="required">*</abbr>
-                                                    </label>
-                                                    <input type="text" value="" placeholder="" id="shipping_first_name" name="shipping_first_name" class="input-text ">
-                                                </p>
-
-                                                <p id="shipping_last_name_field" class="form-row form-row-last validate-required">
-                                                    <label class="" for="shipping_last_name">Last Name <abbr title="required" class="required">*</abbr>
-                                                    </label>
-                                                    <input type="text" value="" placeholder="" id="shipping_last_name" name="shipping_last_name" class="input-text ">
-                                                </p>
-                                                <div class="clear"></div>
-
-                                                <p id="shipping_company_field" class="form-row form-row-wide">
-                                                    <label class="" for="shipping_company">Company Name</label>
-                                                    <input type="text" value="" placeholder="" id="shipping_company" name="shipping_company" class="input-text ">
-                                                </p>
-
-                                                <p id="shipping_address_1_field" class="form-row form-row-wide address-field validate-required">
-                                                    <label class="" for="shipping_address_1">Address <abbr title="required" class="required">*</abbr>
-                                                    </label>
-                                                    <input type="text" value="" placeholder="Street No" id="shipping_address_1" name="shipping_address_1" class="input-text ">
-                                                </p>
-
-                                                <p id="shipping_address_2_field" class="form-row form-row-wide address-field">
-                                                    <input type="text" value="" placeholder="Street Name" id="shipping_address_2" name="shipping_address_2" class="input-text ">
-                                                </p>
-
-                                                <p id="shipping_city_field" class="form-row form-row-wide address-field validate-required" data-o_class="form-row form-row-wide address-field validate-required">
-                                                    <label class="" for="shipping_city">Town / City <abbr title="required" class="required">*</abbr>
-                                                    </label>
-                                                    <input type="text" value="" placeholder="Town / City" id="shipping_city" name="shipping_city" class="input-text ">
-                                                </p>
-
-                                               
-                                                <p id="shipping_postcode_field" class="form-row form-row-last address-field validate-required validate-postcode" data-o_class="form-row form-row-last address-field validate-required validate-postcode">
-                                                    <label class="" for="shipping_postcode">Postcode <abbr title="required" class="required">*</abbr>
-                                                    </label>
-                                                    <input type="text" value="" placeholder="Postalcode" id="shipping_postcode" name="shipping_postcode" class="input-text ">
-                                                </p>
-
-                                                <div class="clear"></div>
-
-
-                                            </div>
-
-
-
-
-
-                                            <p id="order_comments_field" class="form-row notes">
-                                                <label class="" for="order_comments">Order Notes</label>
-                                                <textarea cols="5" rows="2" placeholder="Notes about your order, e.g. special notes for delivery." id="order_comments" class="input-text " name="order_comments"></textarea>
-                                            </p>
-
-
-                                        </div>
-
-                                    </div>
-
+                                 
                                 </div>
 
                                 <h3 id="order_review_heading">Your order</h3>
