@@ -75,17 +75,17 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.jsp">Home</a></li>
                         <li class ="dropdown dropdown-small">
-                            <a href="single-product.jsp" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            Products 
+                            <a href="product.jsp" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Products
                             <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li class="product_tv_link"><a href="#">Televisions</a></li>
+                                <li class="product_tv_link"><a href="productTelevision.jsp">Televisions</a></li>
                                 <li class="divider"></li>
-                                <li class="product_homet_link"><a href="#">Home Theater Systems</a></li>
+                                <li class="product_homet_link"><a href="productHomeTheatre.jsp">Home Theater Systems</a></li>
                                 <li class="divider"></li>
-                                <li class="product_ref_link"><a href="#">Refrigerators</a></li>
+                                <li class="product_ref_link"><a href="productRefrigerator.jsp">Refrigerators</a></li>
                                 <li class="divider"></li>
-                                <li class="product_wmach_link"><a href="#">Washing Machines</a></li>
+                                <li class="product_wmach_link"><a href="productWashingMachine.jsp">Washing Machines</a></li>
                             </ul>
                         </li>
                         <li><a href="cart.jsp">Cart</a></li>

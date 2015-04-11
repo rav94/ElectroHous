@@ -40,10 +40,10 @@
                     <div class="footer-menu">
                         <h2 class="footer-wid-title">Categories</h2>
                         <ul>
-                            <li><a href="#">Televisions</a></li>
-                            <li><a href="#">Refrigerators</a></li>
-                            <li><a href="#">Audio Systems</a></li>
-                            <li><a href="#">Washing Machines</a></li>
+                            <li><a href="productTelevision.jsp">Televisions</a></li>
+                            <li><a href="productRefrigerator.jsp">Refrigerators</a></li>
+                            <li><a href="productHomeTheatre.jsp">Home Theater Systems</a></li>
+                            <li><a href="productWashingMachine.jsp">Washing Machines</a></li>
                         </ul>                        
                     </div>
                 </div>

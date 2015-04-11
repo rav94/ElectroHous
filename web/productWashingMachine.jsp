@@ -1,7 +1,7 @@
 <%-- 
-    Document   : shop
-    Created on : Apr 5, 2015, 11:26:34 AM
-    Author     : sonad
+    Document   : productWachineMachine
+    Created on : Apr 11, 2015, 7:20:33 PM
+    Author     : Ravindu
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="product-bit-title text-center">
-                        <h2>Products</h2>
+                        <h2>Washing Machines</h2>
                     </div>
                 </div>
             </div>
@@ -263,4 +263,3 @@
     <script src="E:\pro\WebApplication1\web\js\main.js"></script>
   </body>
 </html>
-
