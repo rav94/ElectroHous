@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controlClasses;
+package cartControl;
 
 /**
  *
@@ -11,10 +11,11 @@ package controlClasses;
  */
 public class product {
     private int product_id;
+    private int product_code;
     private String title;
     private String brand;
     private String category;
-    private int image;
+    private String image;
     private String description;
     private double price;
     private int quantity;
@@ -31,6 +32,20 @@ public class product {
      */
     public void setProduct_id(int product_id) {
         this.product_id = product_id;
+    }
+    
+    /**
+     * @return the product_code
+     */
+    public int getProduct_code() {
+        return product_code;
+    }
+
+    /**
+     * @param product_code the product_code to set
+     */
+    public void setProduct_code(int product_code) {
+        this.product_code = product_code;
     }
 
     /**
@@ -78,14 +93,14 @@ public class product {
     /**
      * @return the image
      */
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
     /**
      * @param image the image to set
      */
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -130,6 +145,8 @@ public class product {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    
     
     
 }

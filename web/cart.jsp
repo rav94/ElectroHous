@@ -40,8 +40,18 @@
                         </form>
                     </div>
                     
+                    <% 
+                        Object session1 = request.getSession().getAttribute("cart");
+        
+                    %>
+                    
                     <div class="single-sidebar">
                         <h2 class="sidebar-title">Products</h2>
+                        <% 
+            ArrayList<Products> lis = new ArrayList<Products>();
+            lis = (ArrayList)session1;
+            
+            for(Products list : lis) {    %>
                         <div class="thubmnail-recent">
                             <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
                             <h2><a href="single-product.jsp">Sony Smart TV - 2015</a></h2>
