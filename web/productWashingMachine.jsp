@@ -3,7 +3,10 @@
     Created on : Apr 11, 2015, 7:20:33 PM
     Author     : Ravindu
 --%>
-
+<%@page import="java.sql.Statement"%>
+<%@page import="controlClasses.DbConnection"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="cartControl.productShow"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,23 +34,32 @@
     <div class="single-product-area">
         <div class="zigzag-bottom"></div>
         <div class="container">
-            <div class="row">
+        <%
+        Statement stmt= DbConnection.dbConn().createStatement();
+        ResultSet rset = stmt.executeQuery("SELECT product_image_name, title, Price, old_price FROM product WHERE Category = 'washingMachine' ");
+        %>
+            
+        <div class="row">
+        <%
+        while(rset.next()){ 
+        %>
+        <form action="cartAdd" method="post">
                 <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
                         <div class="product-upper">
-                            <img src="img/product-2.jpg" alt="">
+                            <input type="text" name="image" hidden="true" value="<%=rset.getString(1) %>" ><img src="img/<%=rset.getString(1) %>" width="600px" height="600px">
                         </div>
-                        <h2><a href=""> LG Washing Machine</a></h2>
+                        <h2><input type="text" name="title" hidden="true" value="<%=rset.getString(2) %>" > <a href=""><%=rset.getString(2)%></a></h2>
                         <div class="product-carousel-price">
-                            <ins>$899.00</ins> <del>$999.00</del>
+                            <input type="text" name="price" hidden="true" value="<%=rset.getString(3) %>" <ins><%=rset.getString(3) %></ins> <del><%=rset.getString(4)%></del>
                         </div>  
                         
                         <div class="product-option-shop">
-                            <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="/canvas/shop/?add-to-cart=70">Add to cart</a>
+                            <a class="add_to_cart_button"> <input type="submit" value="Add to Cart"> </a>
                         </div>                       
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
+<!--                <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
                         <div class="product-upper">
                             <img src="img/product-1.jpg" alt="">
@@ -211,7 +223,9 @@
                             <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="/canvas/shop/?add-to-cart=70">Add to cart</a>
                         </div>                       
                     </div>
-                </div>
+                </div>-->
+            </form>
+            <% } %>
             </div>
             
             <div class="row">

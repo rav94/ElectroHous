@@ -3,6 +3,10 @@
     Created on : Apr 5, 2015, 11:35:06 AM
     Author     : Ravindu
 --%>
+
+<%@page import="java.util.ArrayList"%>
+<%@page import="cartControl.product"%>
+<!DOCTYPE html>
 <html lang="en">
   
   <!--Header Include -->
@@ -50,7 +54,7 @@
                         <% 
             ArrayList<Products> lis = new ArrayList<Products>();
             lis = (ArrayList)session1;
-            
+                   
             for(Products list : lis) {    %>
                         <div class="thubmnail-recent">
                             <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
@@ -97,8 +101,15 @@
                 <div class="col-md-8">
                     <div class="product-content-right">
                         <div class="woocommerce">
-                            <form method="post" action="#">
+                            <form method="post" action="cartRemove.jsp">
                                 <table cellspacing="0" class="shop_table cart">
+                                    
+                                <% 
+                                    ArrayList<product> list1 = new ArrayList<product>();
+                                    list1 = (ArrayList)session1;
+            
+                                    for(product list : list1) {   
+                                %>
                                     <thead>
                                         <tr>
                                             <th class="product-remove">&nbsp;</th>
@@ -112,19 +123,19 @@
                                     <tbody>
                                         <tr class="cart_item">
                                             <td class="product-remove">
-                                                <a title="Remove this item" class="remove" href="#">×</a> 
+                                                <input class="Remove" type="submit" value="X">
                                             </td>
 
                                             <td class="product-thumbnail">
-                                                <a href="single-product.jsp"><img width="145" height="145" alt="poster_1_up" class="shop_thumbnail" src="img/product-thumb-2.jpg"></a>
+                                                <a href="single-product.jsp"><img width="145" height="145" alt="poster_1_up" class="shop_thumbnail" src="img/<%= list.getImage() %>"></a>
                                             </td>
 
                                             <td class="product-name">
-                                                <a href="single-product.jsp">Ship Your Idea</a> 
+                                                <a href="single-product.jsp"><%= list.getTitle() %></a> 
                                             </td>
 
                                             <td class="product-price">
-                                                <span class="amount">£15.00</span> 
+                                                <span class="amount"><%= list.getPrice()%></span> 
                                             </td>
 
                                             <td class="product-quantity">

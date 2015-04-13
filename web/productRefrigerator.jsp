@@ -18,7 +18,7 @@
     <!--Navigation Area-->
     <%@include file="CommonImports/navArea.jsp"%>
     
-     <div class="product-big-title-area">
+    <div class="product-big-title-area">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -31,17 +31,21 @@
     </div>
     
     
+    
     <div class="single-product-area">
         <div class="zigzag-bottom"></div>
         <div class="container">
-            <div class="row">
-                <%
-                    Statement stmt= DbConnection.dbConn().createStatement();
-                    ResultSet rset = stmt.executeQuery("SELECT product_image_name, title, Price FROM product ");
-                %>
-                
-                <%while(rset.next()){ %>  
-                <form action="cartAdd.java" method="post">
+        <%
+        Statement stmt= DbConnection.dbConn().createStatement();
+        ResultSet rset = stmt.executeQuery("SELECT product_image_name, title, Price, old_price FROM product WHERE Category = 'refrigerator' ");
+        %>
+        
+        <div class="row">
+            
+        <%
+        while(rset.next()){ 
+        %>
+        <form action="cartAdd" method="post">
                 <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
                         <div class="product-upper">
@@ -49,7 +53,7 @@
                         </div>
                         <h2><input type="text" name="title" hidden="true" value="<%=rset.getString(2) %>" > <a href=""><%=rset.getString(2)%></a></h2>
                         <div class="product-carousel-price">
-                            <input type="text" name="price" hidden="true" value="<%=rset.getString(3) %>" <ins><%=rset.getString(3) %></ins> <del>Rs.70000</del>
+                            <input type="text" name="price" hidden="true" value="<%=rset.getString(3) %>" <ins><%=rset.getString(3) %></ins> <del><%=rset.getString(4)%></del>
                         </div>  
                         
                         <div class="product-option-shop">
@@ -57,55 +61,11 @@
                         </div>                       
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="single-shop-product">
-                        <div class="product-upper">
-                            <input type="text" name="image" hidden="true" value="<%=rset.getString(1) %>" ><img src="img/<%=rset.getString(1) %>" width="600px" height="600px">
-                        </div>
-                        <h2><a href="">Samsung Smart TV </a></h2>
-                        <div class="product-carousel-price">
-                            <ins>$899.00</ins> <del>$999.00</del>
-                        </div>  
-                        
-                        <div class="product-option-shop">
-                            <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="/canvas/shop/?add-to-cart=70">Add to cart</a>
-                        </div>                       
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="single-shop-product">
-                        <div class="product-upper">
-                            <img src="img/product-3.jpg" alt="">
-                        </div>
-                        <h2><a href="">LG Smart TV</a></h2>
-                        <div class="product-carousel-price">
-                            <ins>$899.00</ins> <del>$999.00</del>
-                        </div>  
-                        
-                        <div class="product-option-shop">
-                            <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="/canvas/shop/?add-to-cart=70">Add to cart</a>
-                        </div>                       
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="single-shop-product">
-                        <div class="product-upper">
-                            <img src="img/product-4.jpg" alt="">
-                        </div>
-                        <h2><a href="">Apple new mac book 2015 March :P</a></h2>
-                        <div class="product-carousel-price">
-                            <ins>$899.00</ins> <del>$999.00</del>
-                        </div>  
-                        
-                        <div class="product-option-shop">
-                            <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="/canvas/shop/?add-to-cart=70">Add to cart</a>
-                        </div>                       
-                    </div>
-                </div>
-                </form>
-                <% } %>
                 
+            </form>
+            <% } %>
             </div>
+            
             
             <div class="row">
                 <div class="col-md-12">
@@ -132,14 +92,16 @@
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
+    
 
 
     <!--Footer Included -->
     <%@include file="CommonImports/footer.jsp" %>
    
-    <!-- Latest jQuery form server -->
+    <!-- jQuery form server -->
     <script src="https://code.jquery.com/jquery.min.js"></script>
     
     <!-- Bootstrap JS form CDN -->
