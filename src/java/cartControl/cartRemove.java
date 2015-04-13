@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,28 +30,7 @@ public class cartRemove extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet cartRemove</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet cartRemove at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
-        }
-    }
     
-
-   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -65,8 +43,42 @@ public class cartRemove extends HttpServlet {
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         
-      
+        try{
+           HttpSession session = request.getSession();
+           
+           String code = request.getParameter("product_id");
+           Object sess1 = request.getSession().getAttribute("cart");
+           ArrayList<product> list = new ArrayList<product>();
+            list = (ArrayList)sess1;
+            int x =0;
+            int removeitem = 0;
+            for(product pro:list){
+                if(pro.getProduct_code().equalsIgnoreCase(code)){ 
+                removeitem = x;
+                break;
+            }
+            x++;
+            }
+            
+            product pr = list.remove(removeitem);
+            out.println(pr.getProduct_code());
+            
+            session.setAttribute("cart", list);
+            Object sess2 =  request.getSession().getAttribute("cart");
+            ArrayList<product> list2 = (ArrayList<product>)sess2;
+            for(product pro2:list2){
+            out.println(pro2.getProduct_code());
+            }
         
+        }
+        
+        catch(Exception ex)
+        {
+            out.println(ex);
+        }
+        
+      
+        response.sendRedirect("cart.jsp");
     }
 
     /**

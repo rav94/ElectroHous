@@ -37,7 +37,7 @@
         <div class="container">
         <%
         Statement stmt= DbConnection.dbConn().createStatement();
-        ResultSet rset = stmt.executeQuery("SELECT product_image_name, title, Price, old_price FROM product WHERE Category = 'refrigerator' ");
+        ResultSet rset = stmt.executeQuery("SELECT product_image_name, title, ProductCode, Price, old_price FROM product WHERE Category = 'refrigerator' ");
         %>
         
         <div class="row">
@@ -51,9 +51,10 @@
                         <div class="product-upper">
                             <input type="text" name="image" hidden="true" value="<%=rset.getString(1) %>" ><img src="img/<%=rset.getString(1) %>" width="600px" height="600px">
                         </div>
-                        <h2><input type="text" name="title" hidden="true" value="<%=rset.getString(2) %>" > <a href=""><%=rset.getString(2)%></a></h2>
+                        <h2><input type="text" name="title" hidden="true" value="<%=rset.getString(2) %>" > <a href="#"><%=rset.getString(2)%></a></h2>
+                        <h4><input type="text" name="product_id" hidden="true" value="<%=rset.getString(3) %>" ><%=rset.getString(3)%></h4>
                         <div class="product-carousel-price">
-                            <input type="text" name="price" hidden="true" value="<%=rset.getString(3) %>" <ins><%=rset.getString(3) %></ins> <del><%=rset.getString(4)%></del>
+                            <input type="text" name="price" hidden="true" value="<%=rset.getString(4) %>" <ins><%=rset.getString(4) %></ins> <del><%=rset.getString(5)%></del>
                         </div>  
                         
                         <div class="product-option-shop">

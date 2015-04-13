@@ -11,7 +11,7 @@ package cartControl;
  */
 public class product {
     private int product_id;
-    private int product_code;
+    private String product_code;
     private String title;
     private String brand;
     private String category;
@@ -37,14 +37,14 @@ public class product {
     /**
      * @return the product_code
      */
-    public int getProduct_code() {
+    public String getProduct_code() {
         return product_code;
     }
 
     /**
      * @param product_code the product_code to set
      */
-    public void setProduct_code(int product_code) {
+    public void setProduct_code(String product_code) {
         this.product_code = product_code;
     }
 

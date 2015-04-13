@@ -51,11 +51,7 @@
                     
                     <div class="single-sidebar">
                         <h2 class="sidebar-title">Products</h2>
-                        <% 
-            ArrayList<Products> lis = new ArrayList<Products>();
-            lis = (ArrayList)session1;
-                   
-            for(Products list : lis) {    %>
+                        
                         <div class="thubmnail-recent">
                             <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
                             <h2><a href="single-product.jsp">Sony Smart TV - 2015</a></h2>
@@ -86,34 +82,26 @@
                         </div>
                     </div>
                     
-                    <div class="single-sidebar">
-                        <h2 class="sidebar-title">Recent Posts</h2>
-                        <ul>
-                            <li><a href="#">Sony Smart TV - 2015</a></li>
-                            <li><a href="#">Sony Smart TV - 2015</a></li>
-                            <li><a href="#">Sony Smart TV - 2015</a></li>
-                            <li><a href="#">Sony Smart TV - 2015</a></li>
-                            <li><a href="#">Sony Smart TV - 2015</a></li>
-                        </ul>
-                    </div>
+                    
                 </div>
                 
                 <div class="col-md-8">
                     <div class="product-content-right">
                         <div class="woocommerce">
-                            <form method="post" action="cartRemove.jsp">
-                                <table cellspacing="0" class="shop_table cart">
-                                    
-                                <% 
+                             <% 
                                     ArrayList<product> list1 = new ArrayList<product>();
                                     list1 = (ArrayList)session1;
             
                                     for(product list : list1) {   
-                                %>
+                             %>
+                            
+                                <table cellspacing="0" class="shop_table cart">
+                                <form method="post" action="cartRemove"> 
                                     <thead>
                                         <tr>
                                             <th class="product-remove">&nbsp;</th>
                                             <th class="product-thumbnail">&nbsp;</th>
+                                            <th class="product-name">Product ID</th>
                                             <th class="product-name">Product</th>
                                             <th class="product-price">Price</th>
                                             <th class="product-quantity">Quantity</th>
@@ -129,6 +117,11 @@
                                             <td class="product-thumbnail">
                                                 <a href="single-product.jsp"><img width="145" height="145" alt="poster_1_up" class="shop_thumbnail" src="img/<%= list.getImage() %>"></a>
                                             </td>
+                                            
+                                            <td class="product-name">
+                                                <span><%= list.getProduct_code() %></span> 
+                                            </td>
+                                            
 
                                             <td class="product-name">
                                                 <a href="single-product.jsp"><%= list.getTitle() %></a> 
@@ -140,9 +133,9 @@
 
                                             <td class="product-quantity">
                                                 <div class="quantity buttons_added">
-                                                    <input type="button" class="minus" value="-">
-                                                    <input type="number" size="4" class="input-text qty text" title="Qty" value="1" min="0" step="1">
-                                                    <input type="button" class="plus" value="+">
+                                                    <!--<input type="button" class="minus" value="-">-->
+                                                    <input type="number" size="0" class="input-text qty text" title="Qty" value="1" min="0" step="1">
+                                                    <!--<input type="button" class="plus" value="+">-->
                                                 </div>
                                             </td>
 
@@ -157,13 +150,12 @@
                                             </td>
                                         </tr>
                                     </tbody>
+                                </form>
                                 </table>
-                            </form>
+                            <% } %>  
 
                             <div class="cart-collaterals">
-
-
-                            <div class="cross-sells">
+                                 <div class="cross-sells">
                                 <h2>You may be interested in...</h2>
                                 <ul class="products">
                                     <li class="product">

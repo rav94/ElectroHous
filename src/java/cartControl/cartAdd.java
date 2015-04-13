@@ -37,6 +37,7 @@ public class cartAdd extends HttpServlet {
         try{
             String image = request.getParameter("image");
             String title = request.getParameter("title");
+            String product_id = request.getParameter("product_id");
             Double price = Double.parseDouble(request.getParameter("price"));
             HttpSession session = request.getSession(true);
             
@@ -52,6 +53,7 @@ public class cartAdd extends HttpServlet {
        
         product.setImage(image);
         product.setTitle(title);
+        product.setProduct_code(product_id);
         product.setPrice(price);
         list.add(product);
         session.setAttribute("cart", list);
