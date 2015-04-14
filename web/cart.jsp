@@ -6,6 +6,10 @@
 
 <%@page import="java.util.ArrayList"%>
 <%@page import="cartControl.product"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="controlClasses.DbConnection"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="cartControl.productShow"%>
 <!DOCTYPE html>
 <html lang="en">
   
@@ -46,43 +50,32 @@
                     
                     <% 
                         Object session1 = request.getSession().getAttribute("cart");
-        
+                    %>
+                    
+                    <%
+                        Statement stmt= DbConnection.dbConn().createStatement();
+                        ResultSet rset = stmt.executeQuery("SELECT product_image_name, title, ProductCode, Price, old_price FROM product WHERE RAND() LIMIT 4");
                     %>
                     
                     <div class="single-sidebar">
                         <h2 class="sidebar-title">Products</h2>
                         
+                        <%
+                        while(rset.next()){ 
+                        %>
+                        
                         <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.jsp">Sony Smart TV - 2015</a></h2>
+                            <input type="text" name="image" hidden="true" value="<%=rset.getString(1) %>" ><img src="img/<%=rset.getString(1) %>" class="recent-thumb" alt="">
+                            <h2><input type="text" name="title" hidden="true" value="<%=rset.getString(2) %>" ><a href="single-product.jsp"><%=rset.getString(2)%></a></h2>
+                            <h4><input type="text" name="product_id" hidden="true" value="<%=rset.getString(3) %>" ><%=rset.getString(3)%></h4>
                             <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
+                                <input type="text" name="price" hidden="true" value="<%=rset.getString(4) %>" ><ins><%=rset.getString(4) %></ins> <del><%=rset.getString(5)%></del>
                             </div>                             
                         </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.jsp">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.jsp">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.jsp">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>                             
-                        </div>
+                        
+                        <% } %>
+
                     </div>
-                    
-                    
                 </div>
                 
                 <div class="col-md-8">
@@ -138,9 +131,10 @@
                                                     <!--<input type="button" class="plus" value="+">-->
                                                 </div>
                                             </td>
-
+                                            
+                                            <% double totalPrice=+list.getPrice(); %>
                                             <td class="product-subtotal">
-                                                <span class="amount">£15.00</span> 
+                                                <span class="amount"><% out.println(totalPrice); %></span> 
                                             </td>
                                         </tr>
                                         <tr>
@@ -155,33 +149,8 @@
                             <% } %>  
 
                             <div class="cart-collaterals">
-                                 <div class="cross-sells">
-                                <h2>You may be interested in...</h2>
-                                <ul class="products">
-                                    <li class="product">
-                                        <a href="single-product.jsp">
-                                            <img width="325" height="325" alt="T_4_front" class="attachment-shop_catalog wp-post-image" src="img/product-2.jpg">
-                                            <h3>Ship Your Idea</h3>
-                                            <span class="price"><span class="amount">£20.00</span></span>
-                                        </a>
-
-                                        <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="22" rel="nofollow" href="single-product.html">Select options</a>
-                                    </li>
-
-                                    <li class="product">
-                                        <a href="single-product.jsp">
-                                            <img width="325" height="325" alt="T_4_front" class="attachment-shop_catalog wp-post-image" src="img/product-4.jpg">
-                                            <h3>Ship Your Idea</h3>
-                                            <span class="price"><span class="amount">£20.00</span></span>
-                                        </a>
-
-                                        <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="22" rel="nofollow" href="single-product.html">Select options</a>
-                                    </li>
-                                </ul>
-                            </div>
-
-
-                            <div class="cart_totals ">
+                                
+                                <div class="cart_totals">
                                 <h2>Cart Totals</h2>
 
                                 <table cellspacing="0">

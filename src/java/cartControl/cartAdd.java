@@ -58,7 +58,7 @@ public class cartAdd extends HttpServlet {
         list.add(product);
         session.setAttribute("cart", list);
         
-        response.sendRedirect("productRefrigerator.jsp");
+        response.sendRedirect("cart.jsp");
         }
         
         catch(Exception ex)
