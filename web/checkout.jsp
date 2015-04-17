@@ -3,7 +3,12 @@
     Created on : Apr 5, 2015, 11:33:12 AM
     Author     : sonad
 --%>
-
+<%@page import="java.util.ArrayList"%>
+<%@page import="cartControl.product"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="controlClasses.DbConnection"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="cartControl.productShow"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +25,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="product-bit-title text-center">
-                        <h2>Shopping Cart</h2>
+                        <h2>Checkout Process</h2>
                     </div>
                 </div>
             </div>
@@ -41,46 +46,38 @@
                         </form>
                     </div>
                     
+                    <%
+                        Statement stmt= DbConnection.dbConn().createStatement();
+                        ResultSet rset = stmt.executeQuery("SELECT product_image_name, title, ProductCode, Price, old_price FROM product WHERE RAND() LIMIT 4");
+                    %>
                     <div class="single-sidebar">
                         <h2 class="sidebar-title">Products</h2>
+                        
+                        <%
+                        while(rset.next()){ 
+                        %>
+                        
                         <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.jsp">Sony Smart TV - 2015</a></h2>
+                            <input type="text" name="image" hidden="true" value="<%=rset.getString(1) %>" ><img src="img/<%=rset.getString(1) %>" class="recent-thumb" alt="">
+                            <h2><input type="text" name="title" hidden="true" value="<%=rset.getString(2) %>" ><a href="single-product.jsp"><%=rset.getString(2)%></a></h2>
+                            <h4><input type="text" name="product_id" hidden="true" value="<%=rset.getString(3) %>" ><%=rset.getString(3)%></h4>
                             <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>                             
+                                <input type="text" name="price" hidden="true" value="<%=rset.getString(4) %>" ><ins><%=rset.getString(4) %></ins> <del><%=rset.getString(5)%></del>
+                            </div>                                                       
                         </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.jsp">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.jsp">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.jsp">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>                             
-                        </div>
+                        
+                        <% } %>
+                        
                     </div>
                     
                     <div class="single-sidebar">
                         <h2 class="sidebar-title">Recent Posts</h2>
                         <ul>
-                            <li><a href="single-product.jsp">Sony Smart TV - 2015</a></li>
-                            <li><a href="single-product.jsp">Sony Smart TV - 2015</a></li>
-                            <li><a href="single-product.jsp">Sony Smart TV - 2015</a></li>
-                            <li><a href="single-product.jsp">Sony Smart TV - 2015</a></li>
-                            <li><a href="single-product.jsp">Sony Smart TV - 2015</a></li>
+                            <li><a href="#">Forum Article Link 1</a></li>
+                            <li><a href="#">Forum Article Link 2</a></li>
+                            <li><a href="#">Forum Article Link 3</a></li>
+                            <li><a href="#">Forum Article Link 4</a></li>
+                            <li><a href="#">Forum Article Link 5</a></li>
                         </ul>
                     </div>
                 </div>

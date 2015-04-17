@@ -24,6 +24,31 @@
             <servlet-name>cartRemove</servlet-name>
             <url-pattern>/cartRemove</url-pattern>
         </servlet-mapping>
+        
+        <servlet>
+            <servlet-name>errorHandler</servlet-name>
+            <servlet-class>cartControl.errorHandler</servlet-class>
+        </servlet>
+        
+        <servlet-mapping>
+            <servlet-name>errorHandler</servlet-name>
+            <url-pattern>/errorHandler</url-pattern>
+        </servlet-mapping>
+        
+        <error-page>
+            <error-code>404</error-code>
+            <location>/errorHandler</location>
+        </error-page>
+   
+        <error-page>
+            <exception-type>javax.servlet.ServletException</exception-type>
+            <location>/errorHandler</location>
+        </error-page>
+        
+        <error-page>
+            <exception-type>java.lang.Throwable</exception-type>
+            <location>/errorHandler</location>
+        </error-page>
     
         <session-config>
             <session-timeout>

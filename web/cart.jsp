@@ -10,6 +10,7 @@
 <%@page import="controlClasses.DbConnection"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="cartControl.productShow"%>
+<%@page import="controlClasses.errorHandler" %>
 <!DOCTYPE html>
 <html lang="en">
   
@@ -52,12 +53,13 @@
                         Object session1 = request.getSession().getAttribute("cart");
                     %>
                     
+                    
+                    
+                    <div class="single-sidebar">
                     <%
                         Statement stmt= DbConnection.dbConn().createStatement();
                         ResultSet rset = stmt.executeQuery("SELECT product_image_name, title, ProductCode, Price, old_price FROM product WHERE RAND() LIMIT 4");
                     %>
-                    
-                    <div class="single-sidebar">
                         <h2 class="sidebar-title">Products</h2>
                         
                         <%
@@ -81,12 +83,13 @@
                 <div class="col-md-8">
                     <div class="product-content-right">
                         <div class="woocommerce">
-                             <% 
-                                    ArrayList<product> list1 = new ArrayList<product>();
-                                    list1 = (ArrayList)session1;
+                            <% 
+                                double totalPrice = 0;            
+                                ArrayList<product> list1 = new ArrayList<product>();
+                                list1 = (ArrayList)session1;
             
-                                    for(product list : list1) {   
-                             %>
+                                for(product list : list1) {   
+                            %>
                             
                                 <table cellspacing="0" class="shop_table cart">
                                 <form method="post" action="cartRemove"> 
@@ -121,26 +124,32 @@
                                             </td>
 
                                             <td class="product-price">
-                                                <span class="amount"><%= list.getPrice()%></span> 
+                                                <span class="amount">Rs.<%= list.getPrice()%></span> 
                                             </td>
 
                                             <td class="product-quantity">
                                                 <div class="quantity buttons_added">
-                                                    <!--<input type="button" class="minus" value="-">-->
-                                                    <input type="number" size="0" class="input-text qty text" title="Qty" value="1" min="0" step="1">
-                                                    <!--<input type="button" class="plus" value="+">-->
+                                                    <select name="orderquantity" class="quantity" onchange="changePrice(this.value,<%= list.getPrice()%>, <%= list.getProduct_code()%>)">
+                                                    <option selected="selected" value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    </select>
                                                 </div>
                                             </td>
                                             
-                                            <% double totalPrice=+list.getPrice(); %>
+                                            
                                             <td class="product-subtotal">
-                                                <span class="amount"><% out.println(totalPrice); %></span> 
+                                                <span class="amount">Rs.<%= list.getPrice() %></span> 
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="actions" colspan="6">
                                                 <input type="submit" value="Update Cart" name="update_cart" class="button">
-                                                <input type="submit" value="Proceed to Checkout" name="proceed" class="checkout-button button alt wc-forward">
+                                                <form action="checkout.jsp">
+                                                    <input type="submit" value="Proceed to Checkout" name="proceed" class="checkout-button button alt wc-forward" >
+                                                </form>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -149,15 +158,41 @@
                             <% } %>  
 
                             <div class="cart-collaterals">
+                                <div class="cross-sells">
+                                <%
+                                    Statement stmt1= DbConnection.dbConn().createStatement();
+                                    ResultSet rset1 = stmt1.executeQuery("SELECT product_image_name, title, Price FROM product WHERE RAND() LIMIT 2");
+                                %>   
+                                <h2>You may be interested in...</h2>
                                 
-                                <div class="cart_totals">
+                                <ul class="products">
+                                <%
+                                    while(rset1.next()){ 
+                                %>
+                                    <li class="product">
+                                        
+                                        <a href="productTelevision.jsp">
+                                            <input type="text" name="image" hidden="true" value="<%=rset1.getString(1) %>" ><img width="325" height="325" alt="T_4_front" class="attachment-shop_catalog wp-post-image" src="img/<%=rset1.getString(1) %>">
+                                            <h3><input type="text" name="title" hidden="true" value="<%=rset1.getString(2) %>" ><a href="single-product.jsp"><%=rset1.getString(2)%></a></h3>
+                                            <span class="price"><span class="amount"><input type="text" name="price" hidden="true" value="<%=rset1.getString(3) %>" ><%=rset1.getString(3) %></span></span>
+                                        </a>
+
+                                    </li>
+                                <% } %>
+
+                                </ul>
+                                        
+                            </div>
+
+
+                            <div class="cart_totals ">
                                 <h2>Cart Totals</h2>
 
                                 <table cellspacing="0">
                                     <tbody>
                                         <tr class="cart-subtotal">
                                             <th>Cart Subtotal</th>
-                                            <td><span class="amount">£15.00</span></td>
+                                            <td><span class="amount"></span></td>
                                         </tr>
 
                                         <tr class="shipping">
@@ -174,30 +209,7 @@
                             </div>
 
 
-                            <form method="post" action="#" class="shipping_calculator">
-                                <h2><a class="shipping-calculator-button" data-toggle="collapse" href="#calcalute-shipping-wrap" aria-expanded="false" aria-controls="calcalute-shipping-wrap">Delivery Details</a></h2>
-
-                                <section id="calcalute-shipping-wrap" class="shipping-calculator-form collapse">
-
-                                <p class="form-row form-row-wide">
-                                <select rel="calc_shipping_state" class="country_to_state" id="calc_shipping_country" name="calc_shipping_country">
-                                      <option selected="selected" value="">Select your Province</option>
-                                      <option value="CE">Central</option>
-                                      <option value="EA">Eastern</option>
-                                      <option value="NC">North Central</option>
-                                      <option value="NO">Nothern</option>
-                                      <option value="NW">North Western</option>
-                                      <option value="SR">Sabaragamuwa</option>
-                                      <option value="SO">Southern</option>
-                                      <option value="UV">UVA</option>
-                                      <option value="WS">Western</option>
-                                </select>
-                                </p>
-                                
-                               
-
-                                </section>
-                            </form>
+                            
 
 
                             </div>
@@ -227,5 +239,15 @@
     
     <!-- Main Script -->
     <script src="E:\pro\WebApplication1\web\js\main.js"></script>
+    
+    <!--Cart Price Script -->
+    <script>
+        function changePrice(myval,price,set){
+            var total = myval*price;
+            $('#'+set).text(total);
+            alert(qu);
+            alert(price);
+            alert(myval);
+    </script> 
   </body>
 </html>
