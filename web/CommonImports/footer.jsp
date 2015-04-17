@@ -13,8 +13,8 @@
             <div class="row">
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-about-us">
-                        <h2>e<span>Electrohouse</span></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt id doloribus vero quam laborum quas alias dolores blanditiis iusto consequatur, modi aliquid eveniet eligendi iure eaque ipsam iste, pariatur omnis sint! Suscipit, debitis, quisquam. Laborum commodi veritatis magni at?</p>
+                        <h2>E<span>electrohouse</span></h2>
+                        <p>ElectroHouse is the One Stop shop for all your electric appliance needs.</p>
                         <div class="footer-social">
                             <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
                             <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
