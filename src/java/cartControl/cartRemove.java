@@ -77,7 +77,12 @@ public class cartRemove extends HttpServlet {
             out.println(ex);
         }
         
-      
+//        Object sess2 =  request.getSession().getAttribute("cart");
+//        int itemsincart
+//        if(sess2.equals(x++))
+//        {
+//            
+//        }
         response.sendRedirect("cart.jsp");
     }
 

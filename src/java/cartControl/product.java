@@ -19,7 +19,7 @@ public class product {
     private String description;
     private double price;
     private int quantity;
-    public double totalPrice;
+
 
     /**
      * @return the product_id
