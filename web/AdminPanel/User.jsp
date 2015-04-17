@@ -106,7 +106,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                 </div>
                  <!-- /. ROW  -->
                  <hr />
-               
+                 <h5>Enter User Details </h5>
     </div>
              <!-- /. PAGE INNER  -->
             </div>
