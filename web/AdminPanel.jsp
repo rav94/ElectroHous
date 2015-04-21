@@ -1,3 +1,7 @@
+
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.TimeZone"%>
+<%@page import="java.util.Calendar"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -27,10 +31,23 @@
                 </button>
                 <a class="navbar-brand" href="index.html">Binary admin</a> 
             </div>
+           <%
+            Calendar calendar = Calendar.getInstance(TimeZone.getDefault()); 
+            
+           int month= calendar.get(Calendar.MONTH) + 1;
+            Calendar cal = Calendar.getInstance();
+           
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+            
+           int year = calendar.get(Calendar.YEAR);
+           int day = calendar.get(Calendar.DATE);
+           String time = sdf.format(cal.getTime());
+           String myDate = day+"/"+month+"/"+year;%>
+             
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> Last access : <%=myDate %>&nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">

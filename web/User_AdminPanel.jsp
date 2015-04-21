@@ -100,13 +100,43 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                 <div class="row">
                     <div class="col-md-12">
                      <h2>User</h2>   
-                        <h5>Welcome to User Page </h5>
+                        <h5>Welcome to User Page </h5
                        
                     </div>
                 </div>
                  <!-- /. ROW  -->
                  <hr />
                  <h5>Enter User Details </h5>
+                 
+                 <div style="font-size: 16px; margin-left: 100px">
+                     <form action="servletUser" method="POST">
+                         <table>
+                             <tr>
+                                 <td>User Id</td>
+                                 <td><input type="text" name="UserId"></td>
+                             </tr>
+                             <tr>
+                                 <td>User Name</td>
+                                 <td><input type="text" name="UserName"></td>
+                             </tr>
+                             <tr>
+                                 <td>Password</td>
+                                 <td><input type="text" name="password"></td>
+                             </tr>
+                             <tr>
+                                 <td>Contact No</td>
+                                 <td><input type="text" name="contact"></td>
+                             </tr>
+                             <tr>
+                                 <td>User Type</td>
+                                 <td><input type="text" name="type"></td>
+                             </tr>
+                             <tr>
+                                 <td><input type="submit"></td>
+                             </tr>
+                         </table>
+                     </form>
+                 </div>
     </div>
              <!-- /. PAGE INNER  -->
             </div>

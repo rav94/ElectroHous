@@ -106,46 +106,62 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                 </div>
                  <!-- /. ROW  -->
                  <hr />
-                 
+              
+
                  <h4>Product Details</h4>
                  <h5>You can Add new products, edit product details and delete products from database</h5>
                
-                 <div id="form" style="font-size: 12px" >
-                     <form action="" method="GET">
-                         <table>
-                             <tr>
-                              Product Id
-                             </tr>
-                              <tr>
-                              <input type="text" name="Id"/>
-                              </tr>
-                             <tr>
-                                 <td>Product Title</td> 
-                                 <td><input type="text" name="title"</td>
-                             </tr>
-                             <tr>
-                                 <td>Brand</td>
-                                 <td><input type="text" name="brand"></td>
-                             </tr>
-                             <tr>
-                                 <td>Category</td>
-                                 <td><input type="text" name="category"></td>
-                             </tr>
-                             <tr>
-                                 <td>Image</td>
-                                 <td><input type="text" name="image"></td>
-                             </tr>
-                             <tr>
-                                 <td>Description</td>
-                                 <td><input type="text" name="description"></td>
-                             </tr>
-                             <tr>
-                                 <td>Price</td>
-                                 <td><input type="text" name="price"></td>
-                             </tr>
-                         <table/>
+                 <div id="form" style="font-size: 16px; margin-left: 100px;">
+                     <form action="servletProduct" method="POST">
+                         <table border="0" cellspacing="" cellpadding="10">
+                             <tbody>
+                                 <tr>
+                                     <td>Product Id</td>
+                                     <td><input type="text" name="Produt_id" value="" size="10" /></td>
+                                 </tr>
+                                 <tr>
+                                     <td>Product Code</td>
+                                     <td><input type="text" name="Product_code" value="" size="15" /></td>
+                                 </tr>
+                                 <tr>
+                                     <td>Title</td>
+                                     <td><input type="text" name="title" value="" size="15" /></td>
+                                 </tr>
+                                 <tr>
+                                     <td>Brand</td>
+                                     <td><input type="text" name="brand" value="" size="15" /></td>
+                                 </tr>
+                                 <tr>
+                                     <td>Category</td>
+                                     <td><input type="text" name="category" value="" size="10" /></td>
+                                 </tr>
+                                 <tr>
+                                     <td>Image</td>
+                                     <td><input type="text" name="image" value="" size="15" /></td>
+                                 </tr>
+                                 <tr>
+                                     <td>Description</td>
+                                     <td><input type="text" name="description"></td>
+                                 </tr>
+                                 <tr>
+                                     <td>Price</td>
+                                     <td><input type="text" name="price" value="" size="10" /></td>
+                                 </tr>
+                                 <tr>
+                                     <td>Old Price</td>
+                                     <td><input type="text" name="old_price" value="" size="10" /></td>
+                                 </tr>
+                                 <tr>
+                                     <td>quantity</td>
+                                     <td><input type="text" name="quantity"></td>
+                                 </tr>
+                                 <tr>
+                                     <td><input type="submit"></td>
+                                 </tr>
+                             </tbody>
+                         </table>
                      </form>
-                 </div>
+                 
     </div>
              <!-- /. PAGE INNER  -->
             </div>
