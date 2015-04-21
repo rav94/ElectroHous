@@ -160,14 +160,14 @@
                                     <input type="text" name="image" hidden="true" value="<%=rset.getString(1) %>" ><img src="img/<%=rset.getString(1) %>" alt="">
                                     <div class="product-hover">
                                         <a class="add-to-cart-link"><i class="fa fa-shopping-cart"></i><input type="submit" value="Add to Cart"></a>
-                                        <a href="single-product.jsp" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                        <a href="single_product_detail.jsp" class="view-details-link"><i class="fa fa-link"></i> See details</a>
                                     </div>
                                 </div>
                                 
                                 <h2><input type="text" name="title" hidden="true" value="<%=rset.getString(2) %>" ><a href="single-product.jsp"><%=rset.getString(2)%></a></h2>
                                 <h4><input type="text" name="product_id" hidden="true" value="<%=rset.getString(3) %>" ><%=rset.getString(3)%></h4>
                                 <div class="product-carousel-price">
-                                    <input type="text" name="price" hidden="true" value="<%=rset.getString(4) %>" ><ins><%=rset.getString(4) %></ins> <del><%=rset.getString(5)%></del>
+                                    <input type="text" name="price" hidden="true" value="<%=rset.getString(4) %>" ><ins>Rs.<%=rset.getString(4) %></ins> <del>Rs.<%=rset.getString(5)%></del>
                                 </div> 
                             </div>
                         </form>
