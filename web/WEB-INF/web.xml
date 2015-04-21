@@ -46,52 +46,12 @@
         <servlet-class>controlClasses.errorHandler</servlet-class>
     </servlet>
         
+    
     <servlet-mapping>
         <servlet-name>errorHandler</servlet-name>
         <url-pattern>/errorHandler</url-pattern>
     </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>EditProduct</servlet-name>
-        <servlet-class>SourceAdmin.EditProduct</servlet-class>
-    </servlet>
         
-    <servlet-mapping>
-        <servlet-name>EditProduct</servlet-name>
-        <url-pattern>/EditProduct</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>editUser</servlet-name>
-        <servlet-class>SourceAdmin.editUser</servlet-class>
-    </servlet>
-        
-    <servlet-mapping>
-        <servlet-name>editUser</servlet-name>
-        <url-pattern>/editUser</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>servletProduct</servlet-name>
-        <servlet-class>SourceAdmin.servletProduct</servlet-class>
-    </servlet>
-        
-    <servlet-mapping>
-        <servlet-name>servletProduct</servlet-name>
-        <url-pattern>/servletProduct</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>servletUser</servlet-name>
-        <servlet-class>SourceAdmin.servletUser</servlet-class>
-    </servlet>
-        
-    <servlet-mapping>
-        <servlet-name>servletUser</servlet-name>
-        <url-pattern>/servletUser</url-pattern>
-    </servlet-mapping>
-    
-    
     <error-page>
         <error-code>404</error-code>
         <location>/errorHandler</location>
