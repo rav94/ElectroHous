@@ -65,7 +65,7 @@
                             <h2><input type="text" name="title" hidden="true" value="<%=rset.getString(2) %>" ><a href="single-product.jsp"><%=rset.getString(2)%></a></h2>
                             <h4><input type="text" name="product_id" hidden="true" value="<%=rset.getString(3) %>" ><%=rset.getString(3)%></h4>
                             <div class="product-sidebar-price">
-                                <input type="text" name="price" hidden="true" value="<%=rset.getString(4) %>" ><ins><%=rset.getString(4) %></ins> <del><%=rset.getString(5)%></del>
+                                <input type="text" name="price" hidden="true" value="<%=rset.getString(4) %>" ><ins>Rs.<%=rset.getString(4) %></ins> <del>Rs.<%=rset.getString(5)%></del>
                             </div>                             
                         </div>
                         
@@ -101,7 +101,7 @@
                                     <tbody>
                                         <tr class="cart_item">
                                             <td class="product-remove">
-                                                <input class="Remove" type="submit" value="X">
+                                                <input class="Remove" type="submit" value="X" onclick="removeShoppingCart()">
                                             </td>
 
                                             <td class="product-thumbnail">
@@ -114,22 +114,29 @@
                                             
 
                                             <td class="product-name">
-                                                <a href="single-product.jsp"><%= list.getTitle() %></a> 
+                                                <a href="single_product_detail.jsp"><%= list.getTitle() %></a> 
                                             </td>
 
                                             <td class="product-price">
                                                 <span class="amount">Rs.<%= list.getPrice()%></span> 
                                             </td>
 
-                                            <td class="product-subtotal">
-                                                <span class="amount">Rs.<%= list.getPrice() %></span> 
+                                        <tr>
+                                            <td class="actions" colspan="6">
+                                                <input type="submit" value="Update Cart" name="update_cart" class="button">
+                                                <form action="checkout.jsp">
+                                                    <input type="submit" value="Proceed to Checkout" name="proceed" class="checkout-button button alt wc-forward" >
+                                                </form>
                                             </td>
-                                        </tr>
-                                        
-                                    </tbody>
+                                        </tr>    
+                                            
+                                        </tbody>
                                 </form>
                                 </table>
-                            <% } %>  
+                            <% } %>      
+                                            
+                                        
+                                    
                             
                             <table cellspacing="0">
                                 <form method="post" action="checkout.jsp">
@@ -156,7 +163,7 @@
                                         <a href="productTelevision.jsp">
                                             <input type="text" name="image" hidden="true" value="<%=rset1.getString(1) %>" ><img width="325" height="325" alt="T_4_front" class="attachment-shop_catalog wp-post-image" src="img/<%=rset1.getString(1) %>">
                                             <h3><input type="text" name="title" hidden="true" value="<%=rset1.getString(2) %>" ><a href="single-product.jsp"><%=rset1.getString(2)%></a></h3>
-                                            <span class="price"><span class="amount"><input type="text" name="price" hidden="true" value="<%=rset1.getString(3) %>" ><%=rset1.getString(3) %></span></span>
+                                            <span class="price"><span class="amount"><input type="text" name="price" hidden="true" value="<%=rset1.getString(3) %>" >Rs.<%=rset1.getString(3) %></span></span>
                                         </a>
 
                                     </li>
@@ -182,10 +189,6 @@
                                             <td>Free Shipping</td>
                                         </tr>
 
-                                        <tr class="order-total">
-                                            <th>Order Total</th>
-                                            <td><strong><span class="amount">£15.00</span></strong> </td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -222,14 +225,13 @@
     <!-- Main Script -->
     <script src="E:\pro\WebApplication1\web\js\main.js"></script>
     
-    <!--Cart Price Script -->
+    <!--Cart Remove Script -->
     <script>
-        function changePrice(myval,price,set){
-            var total = myval*price;
-            $('#'+set).text(total);
-            alert(qu);
-            alert(price);
-            alert(myval);
+    
+    function removeShoppingCart(){
+        alert("Product Has Been removed from the Shopping Cart");
+    }
+        
     </script> 
   </body>
 </html>
