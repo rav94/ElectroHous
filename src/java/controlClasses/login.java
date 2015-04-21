@@ -6,26 +6,25 @@
 package controlClasses;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.Statement;
-import java.sql.ResultSet;
+import java.io.*;
+import javax.servlet.*;
+import java.sql.*;
 
 /**
  *
  * @author Ravindu
  */
-//@WebServlet(name = "authenticate", urlPatterns = {"/authenticate"})
-public class authenticate extends HttpServlet {
+public class login extends HttpServlet {
 
-    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+        
     }
 
     
@@ -33,32 +32,27 @@ public class authenticate extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        PrintWriter out = response.getWriter();
+        
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        
+        if(authenticate.usercheck())
+        {
+            RequestDispatcher rd = request.getRequestDispatcher("user_order_details.jsp");
+            rd.forward(request, response);
+        }
+        
+        else
+        {
+           out.println("Username or Password is incorrect");
+           RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+           rd.include(request, response);
+        }
+        
     }
 
-    @SuppressWarnings("CallToPrintStackTrace")
-    public static boolean usercheck()
-    {
-        boolean result = false;
-        
-        try{
-            Statement stmt= DbConnection.dbConn().createStatement();
-            ResultSet rset;
-            rset = stmt.executeQuery("SELECT username, password FROM user");
-            
-            String username = rset.getString(1);
-            String password = rset.getString(2);
-            result = rset.next();
-        }
-        
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
-        
-        return result;
-    }
     
-            
-            
     @Override
     public String getServletInfo() {
         return "Short description";

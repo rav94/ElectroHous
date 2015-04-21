@@ -13,10 +13,10 @@
                 <div class="col-md-8">
                     <div class="user-menu">
                         <ul>
-                            <li><a href="#"><i class="fa fa-cog"></i>Administrator Login</a></li>
+                            <li><a href="AdminPanel/index.jsp"><i class="fa fa-cog"></i>Administrator Login</a></li>
                             <li><a href="#"><i class="fa fa-forumbee"></i>Forum</a></li>
                             <li><a href="checkout.jsp"><i class="fa fa-shopping-cart"></i>Checkout</a></li>
-                            <li><a href="#"><i class="fa fa-user"></i>My Account</a></li>
+                            <li><a href="checkout.jsp"><i class="fa fa-user"></i>My Account</a></li>
                         </ul>
                   </div>
               </div>

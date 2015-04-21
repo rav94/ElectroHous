@@ -51,11 +51,11 @@
                             <h2><input type="text" name="title" hidden="true" value="<%=rset.getString(2) %>" > <a href="#"><%=rset.getString(2)%></a></h2>
                         <h4><input type="text" name="product_id" hidden="true" value="<%=rset.getString(3) %>" ><%=rset.getString(3)%></h4>
                         <div class="product-carousel-price">
-                            <input type="text" name="price" hidden="true" value="<%=rset.getString(4) %>" <ins><%=rset.getString(4) %></ins> <del><%=rset.getString(5)%></del>
+                            <input type="text" name="price" hidden="true" value="<%=rset.getString(4) %>" <ins>Rs.<%=rset.getString(4) %></ins> <del>Rs.<%=rset.getString(5)%></del>
                         </div>  
                         
                         <div class="product-option-shop">
-                            <a class="add_to_cart_button"> <input type="submit" value="Add to Cart"> </a>
+                            <a class="add_to_cart_button"> <input type="submit" value="Add to Cart" onclick="addShoppingCart()"> </a>
                         </div>                       
                     </div>
                 </div>
@@ -111,5 +111,14 @@
     
     <!-- Main Script -->
     <script src="E:\pro\WebApplication1\web\js\main.js"></script>
+    
+    <!--Cart Remove Script -->
+    <script>
+    
+    function addShoppingCart(){
+        alert("Product Has Been added to the Shopping Cart");
+    }
+        
+    </script>
   </body>
 </html>

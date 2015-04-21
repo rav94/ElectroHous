@@ -21,6 +21,7 @@ public class DbConnection {
     PreparedStatement pstmnt;
     static Connection conn = null;
     
+    @SuppressWarnings("CallToPrintStackTrace")
     public static Connection dbConn(){
         try
         {
@@ -31,12 +32,13 @@ public class DbConnection {
         }
         
         catch(Exception ex){
-            JOptionPane.showMessageDialog(null, ex);
+            ex.printStackTrace();
         }
         
         return conn;
     }
     
+    @SuppressWarnings("CallToPrintStackTrace")
     public int runQuery(String sql)
     {
         int x = 0;
@@ -47,12 +49,13 @@ public class DbConnection {
         }
         catch(Exception ex)
         {
-            JOptionPane.showMessageDialog(null, ex);
+            ex.printStackTrace();
         }
         
         return x;
     }
     
+    @SuppressWarnings("CallToPrintStackTrace")
     public ResultSet selectQuery(String sql)
     {
      
@@ -65,7 +68,7 @@ public class DbConnection {
         
      catch(Exception ex)
      {
-            
+          ex.printStackTrace();
      }
         
      return set;

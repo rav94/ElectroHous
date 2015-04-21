@@ -14,7 +14,7 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-about-us">
                         <h2>E<span>electrohouse</span></h2>
-                        <p>ElectroHouse is the One Stop shop for all your electric appliance needs.</p>
+                        <p>ElectroHouse is the One Stop shop for all your electric appliance needs. Come and visit us today itself at one of our branches.</p>
                         <div class="footer-social">
                             <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
                             <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
@@ -27,10 +27,9 @@
                     <div class="footer-menu">
                         <h2 class="footer-wid-title">User Navigation </h2>
                         <ul>
-                            <li><a href="#">My account</a></li>
-                            <li><a href="#">Order history</a></li>
+                            <li><a href="checkout.jsp">My account</a></li>
                             <li><a href="#">Forum</a></li>
-                            <li><a href="#">Home</a></li>    
+                            <li><a href="index.jsp">Home</a></li>    
                             
                         </ul>                        
                     </div>
@@ -51,7 +50,7 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-newsletter">
                         <h2 class="footer-wid-title">Newsletter</h2>
-                        <p>Sign up to our monthly newsletter and get to know everything you want to know about electrical appliances </p>
+                        <p>Sign up here and get details on our promotional offers. </p>
                         <div class="newsletter-form">
                             <form action="#">
                                 <input type="email" placeholder="Type your email">
@@ -73,14 +72,7 @@
                     </div>
                 </div>
                 
-                <div class="col-md-4">
-                    <div class="footer-card-icon">
-                        <i class="fa fa-cc-discover"></i>
-                        <i class="fa fa-cc-mastercard"></i>
-                        <i class="fa fa-cc-paypal"></i>
-                        <i class="fa fa-cc-visa"></i>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div> <!-- End footer bottom area -->

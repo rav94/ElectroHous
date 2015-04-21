@@ -94,7 +94,6 @@
                                             <th class="product-name">Product ID</th>
                                             <th class="product-name">Product</th>
                                             <th class="product-price">Price</th>
-                                            <th class="product-quantity">Quantity</th>
                                             <th class="product-subtotal">Total</th>
                                         </tr>
                                     </thead>
@@ -120,6 +119,10 @@
                                             <td class="product-price">
                                                 <span class="amount">Rs.<%= list.getPrice()%></span> 
                                             </td>
+                                            
+                                            <td class="product-subtotal">
+                                                <span class="amount">Rs.<%= list.getPrice()%></span> 
+                                            </td>
 
                                         <tr>
                                             <td class="actions" colspan="6">
@@ -136,15 +139,9 @@
                             <% } %>      
                                             
                                         
-                                    
+<!--                            //Proceed to checkout button should be added        -->
                             
-                            <table cellspacing="0">
-                                <form method="post" action="checkout.jsp">
-                                    <tr>
-                                        <th><inpu</th>
-                                    </tr>
-                                </form>
-                            </table>
+                            
 
                             <div class="cart-collaterals">
                                 <div class="cross-sells">
@@ -181,7 +178,7 @@
                                     <tbody>
                                         <tr class="cart-subtotal">
                                             <th>Cart Subtotal</th>
-                                            <td><span class="amount"></span></td>
+                                            <td><span class="amount">   </span></td>
                                         </tr>
 
                                         <tr class="shipping">
@@ -192,11 +189,6 @@
                                     </tbody>
                                 </table>
                             </div>
-
-
-                            
-
-
                             </div>
                         </div>                        
                     </div>                    
