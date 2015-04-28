@@ -4,6 +4,8 @@
     Author     : Ravindu
 --%>
 
+<%@page import="cartControl.product"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,12 +15,12 @@
                 <div class="col-md-8">
                     <div class="user-menu">
                         <ul>
-                            <li><a href="AdminPanel/index.jsp"><i class="fa fa-cog"></i>Administrator Login</a></li>
+                            <li><a href="index.jsp"><i class="fa fa-cog"></i>Administrator Login</a></li>
                             <li><a href="#"><i class="fa fa-forumbee"></i>Forum</a></li>
                             <li><a href="checkout.jsp"><i class="fa fa-shopping-cart"></i>Checkout</a></li>
                             <li><a href="checkout.jsp"><i class="fa fa-user"></i>My Account</a></li>
                         </ul>
-                  </div>
+                    </div>
               </div>
                 
                 <div class="col-md-4">
@@ -54,7 +56,7 @@
                 
                 <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="cart.jsp">Cart - <span class="cart-amunt">$800</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                        <a href="cart.jsp">Cart - <span class="cart-amunt">Rs.</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">3</span></a>
                     </div>
                 </div>
             </div>

@@ -81,7 +81,9 @@
                                 double totalPrice = 0;            
                                 ArrayList<product> list1 = new ArrayList<product>();
                                 list1 = (ArrayList)session1;
-            
+                                for(product pro:list1){
+                                    totalPrice+=pro.getPrice();
+                                }
                                 for(product list : list1) {   
                             %>
                             
@@ -178,7 +180,7 @@
                                     <tbody>
                                         <tr class="cart-subtotal">
                                             <th>Cart Subtotal</th>
-                                            <td><span class="amount">   </span></td>
+                                            <td><span class="amount">Rs.<%=totalPrice%></span></td>
                                         </tr>
 
                                         <tr class="shipping">

@@ -167,7 +167,7 @@
                                 <h2><input type="text" name="title" hidden="true" value="<%=rset.getString(2) %>" ><a href="single-product.jsp"><%=rset.getString(2)%></a></h2>
                                 <h4><input type="text" name="product_id" hidden="true" value="<%=rset.getString(3) %>" ><%=rset.getString(3)%></h4>
                                 <div class="product-carousel-price">
-                                    <input type="text" name="price" hidden="true" value="<%=rset.getString(4) %>" ><ins><%=rset.getString(4) %></ins> <del><%=rset.getString(5)%></del>
+                                    <input type="text" name="price" hidden="true" value="<%=rset.getString(4) %>" ><ins>Rs.<%=rset.getString(4) %></ins> <del>Rs.<%=rset.getString(5)%></del>
                                 </div> 
                             </div>
                         </form>
